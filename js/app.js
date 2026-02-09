@@ -22,7 +22,7 @@ const movies = [
     badge: "Việt Nam",
     rating: 8.3,
     votes: "50K",
-    poster: "images/Bố già.jpg",
+    poster: "images/bo-gia.jpg",
     director: "Vũ Ngọc Đãng, Trấn Thành",
     cast: ["Trấn Thành", "Tuấn Trần", "NSND Ngọc Giàu"],
     description:

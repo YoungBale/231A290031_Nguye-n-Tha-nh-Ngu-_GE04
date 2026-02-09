@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PandaMovie</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="">
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="app-title">
+          <div class="app-logo">
+            <img src="images/logo.jpg" alt="Logo PandaMovie" class="app-logo-image" />
+          </div>
+          <div>
+            <div class="app-name">PandaMovie</div>
+            <div class="app-subtitle">Khám phá kho phim cùng Panda</div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button
+            id="themeToggle"
+            class="mode-toggle"
+            type="button"
+            aria-label="Chuyển đổi giao diện sáng / tối"
+          >
+            <span class="toggle-label">Light / Dark</span>
+            <div class="toggle-switch">
+              <div class="toggle-icons">
+                <span>☀️</span>
+                <span>🌙</span>
+              </div>
+              <div class="toggle-knob"></div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <h2 class="filter-title">Bộ lọc phim</h2>
+
+        <section class="filter-group" aria-label="Tìm kiếm phim">
+          <div class="filter-group-label">Tìm kiếm</div>
+          <input
+            type="text"
+            id="searchInput"
+            class="filter-search-input"
+            placeholder="Nhập tên phim..."
+          />
+          <p class="filter-footer-note">
+            Tìm theo tên phim. Có áp dụng <strong>debounce</strong> 300ms.
+          </p>
+        </section>
+
+        <section class="filter-group" aria-label="Thể loại">
+          <div class="filter-group-label">Thể loại</div>
+          <div id="genreFilterContainer" class="filter-checkbox-list">
+            <!-- Checkbox thể loại sẽ được sinh tự động bằng JS -->
+          </div>
+        </section>
+
+        <p class="filter-footer-note">
+          *Bộ lọc và tìm kiếm được xử lý bằng JavaScript trên mảng dữ liệu phim.
+        </p>
+      </aside>
+
+      <main>
+        <section class="main-header">
+          <div>
+            <h1 class="main-title">Đề xuất cho bạn</h1>
+            <p class="main-meta">
+              Khám phá những bộ phim đang được cộng đồng yêu thích.
+            </p>
+          </div>
+          <div>
+            <select class="sort-select" aria-label="Sắp xếp">
+              <option>Sắp xếp: Phổ biến nhất</option>
+              <option>Đánh giá cao nhất</option>
+              <option>Mới phát hành</option>
+              <option>Cũ nhất</option>
+            </select>
+          </div>
+        </section>
+
+        <section
+          id="movieGrid"
+          class="movie-grid"
+          aria-label="Danh sách phim được render bằng JavaScript"
+        >
+          <!-- Thẻ phim sẽ được sinh tự động bằng JS từ dữ liệu -->
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal chi tiết phim -->
+  <div
+    id="movieModal"
+    class="modal-backdrop"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle" class="modal-title">Tiêu đề phim</h2>
+        <button
+          type="button"
+          class="modal-close-button"
+          aria-label="Đóng chi tiết phim"
+          data-modal-close
+        >
+          ×
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-poster-wrapper">
+          <img
+            id="modalPoster"
+            class="modal-poster"
+            src=""
+            alt="Poster phim"
+          />
+        </div>
+        <div class="modal-info">
+          <p class="modal-meta">
+            <span id="modalYear"></span> ·
+            <span id="modalGenres"></span>
+          </p>
+          <p class="modal-rating">
+            <span id="modalRating"></span>
+          </p>
+          <p class="modal-text">
+            <strong>Đạo diễn:</strong>
+            <span id="modalDirector"></span>
+          </p>
+          <p class="modal-text">
+            <strong>Diễn viên:</strong>
+            <span id="modalCast"></span>
+          </p>
+          <p class="modal-text">
+            <strong>Mô tả:</strong>
+            <span id="modalDescription"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
